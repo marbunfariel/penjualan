@@ -1,0 +1,20 @@
+<?php
+//koneksi database
+include'../koneksi.php';
+
+//menangkap data yang dikirim dari form
+$PelangganID = $_POST['PelangganID'];
+$NamaPelanggan = $_POST['Nama Pelanggan'];
+$NoTelepon = $_POST['NoTelepon'];
+$Alamat = $_POST['Alamat'];
+$TanggalPenjualan = $_POST['TanggalPenjualan'];
+
+
+//menginput data ke database
+mysqli_query($koneksi,"insert into  pelanggan values('$PelangganID','$NamaPelanggan','$NoTelepon','$Alamat')");
+mysqli_query($koneksi,"insert into  penjualan  values('$','$TanggalPenjualan','$PelangganID')");
+
+//mengalihkan halaman kembali ke pembelian.php
+header("location:pembelian.php?pesan=simpan");
+
+?>
